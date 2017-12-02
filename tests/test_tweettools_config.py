@@ -1,5 +1,5 @@
 """ 
-    <one line to give the program's name and a brief idea of what it does.>
+    tweettool - A command line program to automate common Twitter usage.
     Copyright (C) 2017 faraco <skelic3@gmail.com>
 
     This program is free software: you can redistribute it and/or modify
@@ -54,4 +54,3 @@ class TestConfig(unittest.TestCase):
         self.assertEqual(indata['access_token'], ACCESS_TOKEN)
         self.assertEqual(indata['access_token_secret'], ACCESS_TOKEN_SECRET)
         self.assertEqual(indata['twitter_handle'], TWITTER_HANDLE)
-        

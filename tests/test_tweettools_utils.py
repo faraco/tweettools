@@ -1,5 +1,5 @@
 """ 
-    <one line to give the program's name and a brief idea of what it does.>
+    tweettool - A command line program to automate common Twitter usage.
     Copyright (C) 2017 faraco <skelic3@gmail.com>
 
     This program is free software: you can redistribute it and/or modify
@@ -18,12 +18,15 @@
 
 import unittest
 import tweettools_utils
-import twitter_follow_bot
 import os
+
+tu = tweettools_utils.Utils()
 
 class TestUtils(unittest.TestCase):
     """Handle utilities tests."""
 
-    def auto_follow_back(self):
-        pass
+    def test_autofollow_back(self):
+        """Auto following pending followers"""
+
+        self.assertTrue(tu.auto_followback())
 

@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+
 """ 
     tweettool - A command line program to automate common Twitter usage.
     Copyright (C) 2017 faraco <skelic3@gmail.com>
@@ -16,13 +18,12 @@
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 """
 
-import os
-import yaml
-import twitter_follow_bot as tfb
 import tweettools_config
+import tweettools_utils
 
-class Utils:
-    """Handle tweettool utilities."""
+def main():
+    """Main program"""
+    pass
 
-    def auto_followback(self):
-        return 1
+if __name__ == '__main__':
+    main()
