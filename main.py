@@ -25,11 +25,15 @@ import twitter_follow_bot as tfb
 
 def generate_config_prompt():
     """Prompt user to write or edit twitter credentials configs"""
-    print('\n***Write configuration file\n')
+
+    print('\n***Write configuration file***\n')
     con_key = input('Consumer Key: ')
     con_secr = input('Consumer Secret: ')
     acc_token = input('Access Token: ')
     acc_token_secr = input('Access Token Secret: ')
+    t_handle = input('Twitter Handle: ')
+
+    return con_key, con_secr, acc_token, acc_token_secr, t_handle
     
 
 def main():
@@ -44,11 +48,17 @@ def main():
     args = parser.parse_args()
 
     tt_utils = tweettools_utils.Utils()
+    tt_config = ''
+    
+    if args.setup_t:
+        key = generate_config_prompt()
+        
+        tt_config = tweettools_config.Config(key[0], key[1], key[2], key[3], key[4])
+        tt_config.write_to_config()
 
-    if args.followback_t:
+    elif args.followback_t:
         print('Executing auto follow back followers..')
         tt_utils.auto_followback()
 
-    generate_config_prompt()
 if __name__ == '__main__':
     main()
