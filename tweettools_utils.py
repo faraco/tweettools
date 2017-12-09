@@ -25,4 +25,4 @@ class Utils:
     """Handle tweettool utilities."""
 
     def auto_followback(self):
-        return 1
+        tfb.auto_follow_followers()

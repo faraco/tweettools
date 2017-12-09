@@ -1,0 +1,4 @@
+core:
+    * auto follow back pending users.
+    * auto unfollow unfollowers.
+    * send tweet.
