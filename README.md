@@ -5,12 +5,14 @@ A command line program to automate Twitter common usage.
 ## Getting Started
 
 ### Prerequisites
-* click
+* python3
 * twitter
 
 > You can install the dependencies via pip using `pip install -r requirements.txt`
 
-### Installing
+### Running the program
+
+Run `python3 tweettool.py -h` to see the available options.
 
 ## Running the tests
 
