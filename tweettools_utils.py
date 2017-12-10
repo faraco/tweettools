@@ -16,13 +16,32 @@
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 """
 
-import os
-import yaml
 import twitter_follow_bot as tfb
-import tweettools_config
+import twitter
 
 class Utils:
     """Handle tweettool utilities."""
+
+    def __init__(self):
+        self.tw = twitter.Twitter(
+                auth = twitter.OAuth(
+                    tfb.ACCESS_TOKEN,
+                    tfb.ACCESS_TOKEN_SECRET,
+                    tfb.API_KEY,
+                    tfb.API_SECRET
+                )
+        )
+        
+
+    def send_tweet(self, text):
+        """Send tweet to user's timeline."""
+        
+        try:
+            results = self.tw.statuses.update(status=text)
+            return results
+
+        except twitter.TwitterHTTPError as e:
+            print("Error: {}".format(e))
 
     def auto_followback(self):
         """Simple wrapper for following back the users following you."""
