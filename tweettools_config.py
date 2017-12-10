@@ -43,7 +43,7 @@ class Config:
             with open(CONFIG_PATH, 'w+') as outfile:
                 yaml.dump(self.data_dict, outfile, default_flow_style=False)
 
-            print('Configuration file at {} is generated.'.format(CONFIG_PATH))
+            print('\nConfiguration file at {} is generated.\n'.format(CONFIG_PATH))
 
         except OSError:
             raise
