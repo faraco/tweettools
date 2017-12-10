@@ -1,4 +1,12 @@
-core:
+[DONE] Core:
     [DONE] auto follow back following users.
     [DONE] auto unfollow unfollowers.
-    * send tweet.
+    [DONE] send tweet.
+
+Optionals/Enchancement:
+    * Follow users based on defined phrase.
+    * Favorite user's tweet based on phrase.
+    * Retweet user's tweet.
+    * Auto DM (annoying, might be discarded).
+    * Search and return searched informations.
+

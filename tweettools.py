@@ -61,6 +61,8 @@ def main():
     parser.add_argument('-fb', '--followback', action='store_true', dest='followback_t', default=False, help='Auto follow back pending users.')
 
     parser.add_argument('-uf', '--unfollow_nf', action='store_true', dest='unfollow_unfollowers_t', default=False, help='Auto unfollow unfollowers or non-followers.')
+
+    parser.add_argument('-st', '--send_tweet', action='store', dest='tweet_text', help='Send tweet to user\'s timeline')
     
     args = parser.parse_args()
 
@@ -83,6 +85,13 @@ def main():
         print('Hit Ctrl+C to interrupt the program.\n')
 
         tt_utils.autounfollow_nonfollowers()
+
+    elif args.tweet_text:
+        print('\nSending tweet to your timeline..')
+        print('Hit Ctrl+C to interrupt the program.\n')
+
+        result = tt_utils.send_tweet(args.tweet_text)
+        print('Your status with the text `{}` has been successfuly updated.\n'.format(result['text']))
 
     elif len(sys.argv) == 1:
         print('\ntweettool.py needs at least one supplied argument. Please run "tweettool.py -h" to see available options.\n')

@@ -25,17 +25,18 @@ tu = tweettools_utils.Utils()
 class TestUtils(unittest.TestCase):
     """Handle utilities tests."""
     
-    def test_send_tweet(self):
-        """Send tweet to timeline."""
-        self.assertTrue(tu.send_tweet('hello world'))
+    # NOTE skipped to avoid long test and spam
+    #def test_send_tweet(self):
+    #    """Send tweet to timeline."""
+    #    self.assertTrue(tu.send_tweet('hello world'))
 
-    # NOTE skipped to avoid long test
+    # NOTE skipped to avoid long test and spam
     #def test_autofollow_back(self):
     #    """Auto following pending followers"""
     #
     #    self.assertTrue(tu.auto_followback())
     
-    # NOTE skipped to avoid long test
+    # NOTE skipped to avoid long test and spam
     #def test_autounfollow_nonfollowers(self):
     #    """Auto unfollow the nonfollowers"""
     #    self.assertTrue(tu.autounfollow_nonfollowers())
