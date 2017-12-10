@@ -39,7 +39,7 @@ try:
     with open(tweettools_config.CONFIG_PATH, 'r') as infile:
         indata = yaml.load(infile)
 except OSError:
-    raise
+    raise OSError
 
 API_KEY = indata['consumer_key']
 API_SECRET = indata['consumer_secret']

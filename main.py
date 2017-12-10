@@ -19,9 +19,8 @@
 """
 
 import argparse
-import tweettools_config
-import tweettools_utils
-import twitter_follow_bot as tfb
+import tweettools_config 
+import os
 
 def generate_config_prompt():
     """Prompt user to write or edit twitter credentials configs"""
@@ -39,6 +38,19 @@ def generate_config_prompt():
 def main():
     """Main program"""
     
+    # Run the config prompt if the config file is not exist.
+    if not os.path.isfile(tweettools_config.CONFIG_PATH):
+        print('Executing automatic file generation')
+
+        key = generate_config_prompt()
+
+        tt_config = tweettools_config.Config(key[0], key[1], key[2], key[3], key[4])
+        tt_config.write_to_config()
+
+    # this needs the config file to be generated first, so had to import after config file is generated in the first run.
+    import tweettools_utils
+
+
     parser = argparse.ArgumentParser(description='Automating Twitter common usage.')
 
     parser.add_argument('-s', '--setup', action='store_true', dest='setup_t', default=False, help='Setup Twitter credentials configuration.')
