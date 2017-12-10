@@ -90,11 +90,12 @@ def main():
         print('\nSending tweet to your timeline..')
         print('Hit Ctrl+C to interrupt the program.\n')
 
-        result = tt_utils.send_tweet(args.tweet_text)
-        print('Your status with the text `{}` has been successfuly updated.\n'.format(result['text']))
+        tt_utils.send_tweet(args.tweet_text)
+        print('Your status with the text `{}` has been successfuly updated.\n'.format(args.tweet_text))
 
     elif len(sys.argv) == 1:
         print('\ntweettool.py needs at least one supplied argument. Please run "tweettool.py -h" to see available options.\n')
 
 if __name__ == '__main__':
     main()
+
