@@ -25,4 +25,9 @@ class Utils:
     """Handle tweettool utilities."""
 
     def auto_followback(self):
+        """Simple wrapper for following back the users following you."""
         tfb.auto_follow_followers()
+
+    def autounfollow_nonfollowers(self):
+        """Simple wrapper to unfollow non followers"""
+        tfb.auto_unfollow_nonfollowers()

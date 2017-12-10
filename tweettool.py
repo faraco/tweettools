@@ -21,11 +21,13 @@
 import argparse
 import tweettools_config 
 import os
+import sys
 
 def generate_config_prompt():
     """Prompt user to write or edit twitter credentials configs"""
 
     print('\n***Write configuration file***\n')
+    print('Hit Ctrl+C to interrupt the program.\n')
     con_key = input('Consumer Key: ')
     con_secr = input('Consumer Secret: ')
     acc_token = input('Access Token: ')
@@ -40,7 +42,8 @@ def main():
     
     # Run the config prompt if the config file is not exist.
     if not os.path.isfile(tweettools_config.CONFIG_PATH):
-        print('Executing automatic file generation')
+        print('\nExecuting automatic file generation..')
+        print('Hit Ctrl+C to interrupt the program.\n')
 
         key = generate_config_prompt()
 
@@ -56,6 +59,8 @@ def main():
     parser.add_argument('-s', '--setup', action='store_true', dest='setup_t', default=False, help='Setup Twitter credentials configuration.')
 
     parser.add_argument('-fb', '--followback', action='store_true', dest='followback_t', default=False, help='Auto follow back pending users.')
+
+    parser.add_argument('-uf', '--unfollow_nf', action='store_true', dest='unfollow_unfollowers_t', default=False, help='Auto unfollow unfollowers or non-followers.')
     
     args = parser.parse_args()
 
@@ -69,8 +74,18 @@ def main():
         tt_config.write_to_config()
 
     elif args.followback_t:
-        print('Executing auto follow back followers..')
+        print('\nExecuting auto follow back followers..')
+        print('Hit Ctrl+C to interrupt the program.\n')
         tt_utils.auto_followback()
+
+    elif args.unfollow_unfollowers_t:
+        print('\nUnfollowing unfollowers/non-followers..')
+        print('Hit Ctrl+C to interrupt the program.\n')
+
+        tt_utils.autounfollow_nonfollowers()
+
+    elif len(sys.argv) == 1:
+        print('\ntweettool.py needs at least one supplied argument. Please run "tweettool.py -h" to see available options.\n')
 
 if __name__ == '__main__':
     main()

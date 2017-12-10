@@ -30,4 +30,7 @@ class TestUtils(unittest.TestCase):
     #    """Auto following pending followers"""
     #
     #    self.assertTrue(tu.auto_followback())
-
+    
+    def test_autounfollow_nonfollowers(self):
+        """Auto unfollow the nonfollowers"""
+        self.assertTrue(tu.autounfollow_nonfollowers())

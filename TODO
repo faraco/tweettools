@@ -1,4 +1,4 @@
 core:
-    * auto follow back pending users.
-    * auto unfollow unfollowers.
+    [DONE] auto follow back following users.
+    [DONE] auto unfollow unfollowers.
     * send tweet.
