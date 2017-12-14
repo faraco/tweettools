@@ -2,6 +2,8 @@
 
 A command line program to automate Twitter common usage.
 
+Due to Twitter's API usage policy and the high risk of permanent suspension of accounts, this project will be abandoned and archived.
+
 ## Getting Started
 
 ### Prerequisites
