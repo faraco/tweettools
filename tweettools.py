@@ -61,7 +61,7 @@ def main():
     parser.add_argument('-fb', '--followback', action='store_true', dest='followback_t', default=False, help='Auto follow back pending users.')
 
     parser.add_argument('-uf', '--unfollow_nf', action='store_true', dest='unfollow_nonfollowers_t', default=False, help='Auto unfollow unfollowers or non-followers.')
-    parser.add_argument('-ufe', '--unfollow-nfe', metavar='excluding_ids', action='store', dest='unfollow_nonfollowers_excluding_ids', nargs='+', help='Auto unfollow unfollowers or non-followers excluding ids.\n (eg. tweettools -ufe 123456 654321 10203040 998877665544)')
+    parser.add_argument('-ufe', '--unfollow-nfe', metavar='excluded_ids', action='store', dest='unfollow_nonfollowers_excluding_ids', nargs='+', help='Auto unfollow unfollowers or non-followers excluding ids.\n (eg. tweettools -ufe 123456 654321 10203040 998877665544)')
 
     parser.add_argument('-st', '--send_tweet', action='store', dest='tweet_text', help='Send tweet to user\'s timeline')
     
