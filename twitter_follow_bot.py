@@ -238,7 +238,7 @@ def auto_follow_followers():
             print("error: %s" % (str(e)))
 
 
-def auto_unfollow_nonfollowers(*keep_following):
+def auto_unfollow_nonfollowers(keep_following=[]):
     """
         Unfollows everyone who hasn't followed you back
     """

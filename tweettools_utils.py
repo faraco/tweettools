@@ -47,6 +47,6 @@ class Utils:
         """Simple wrapper for following back the users following you."""
         tfb.auto_follow_followers()
 
-    def auto_unfollow_nonfollowers(self, *keep_following):
+    def auto_unfollow_nonfollowers(self, keep_following=[]):
         """Simple wrapper to unfollow non followers"""
         tfb.auto_unfollow_nonfollowers(keep_following)
