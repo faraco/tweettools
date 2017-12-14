@@ -39,4 +39,11 @@ class TestUtils(unittest.TestCase):
     # NOTE skipped to avoid long test and spam
     #def test_autounfollow_nonfollowers(self):
     #    """Auto unfollow the nonfollowers"""
-    #    self.assertTrue(tu.autounfollow_nonfollowers())
+    #    self.assertTrue(tu.auto_unfollow_nonfollowers())
+    
+    # NOTE skipped to avoid long test and spam
+    #def test_autounfollow_excluding_ids(self):
+    #    """Auto unfollow the nonfollowers excluding given ids"""
+    #    ids = [17471979, 11348282]
+
+        self.assertTrue(tu.auto_unfollow_nonfollowers(ids))

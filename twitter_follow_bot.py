@@ -1,5 +1,6 @@
 """
 Copyright 2014 Randal S. Olson
+Copyright 2017 faraco <skelic3@gmail.com>
 
 This file is part of the Twitter Follow Bot library.
 
@@ -237,7 +238,7 @@ def auto_follow_followers():
             print("error: %s" % (str(e)))
 
 
-def auto_unfollow_nonfollowers():
+def auto_unfollow_nonfollowers(*keep_following):
     """
         Unfollows everyone who hasn't followed you back
     """
@@ -247,7 +248,7 @@ def auto_unfollow_nonfollowers():
 
     # put user IDs here that you want to keep following even if they don't
     # follow you back
-    users_keep_following = set([])
+    users_keep_following = keep_following
 
     not_following_back = following - followers
 

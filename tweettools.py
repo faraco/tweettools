@@ -60,7 +60,8 @@ def main():
 
     parser.add_argument('-fb', '--followback', action='store_true', dest='followback_t', default=False, help='Auto follow back pending users.')
 
-    parser.add_argument('-uf', '--unfollow_nf', action='store_true', dest='unfollow_unfollowers_t', default=False, help='Auto unfollow unfollowers or non-followers.')
+    parser.add_argument('-uf', '--unfollow_nf', action='store_true', dest='unfollow_nonfollowers_t', default=False, help='Auto unfollow unfollowers or non-followers.')
+    parser.add_argument('-ufe', '--unfollow-nfe', metavar='excluding_ids', action='store', dest='unfollow_nonfollowers_excluding_ids', nargs='+', help='Auto unfollow unfollowers or non-followers excluding ids.\n (eg. tweettools -ufe 123456 654321 10203040 998877665544)')
 
     parser.add_argument('-st', '--send_tweet', action='store', dest='tweet_text', help='Send tweet to user\'s timeline')
     
@@ -80,11 +81,22 @@ def main():
         print('Hit Ctrl+C to interrupt the program.\n')
         tt_utils.auto_followback()
 
-    elif args.unfollow_unfollowers_t:
+    elif args.unfollow_nonfollowers_t:
         print('\nUnfollowing unfollowers/non-followers..')
         print('Hit Ctrl+C to interrupt the program.\n')
 
-        tt_utils.autounfollow_nonfollowers()
+        orig_args = args.unfollow_nonfollowers_t
+    
+        tt_utils.auto_unfollow_nonfollowers(orig_args)
+
+    elif args.unfollow_nonfollowers_excluding_ids:
+        orig_args = args.unfollow_nonfollowers_excluding_ids
+
+        str_args = ', '.join(orig_args)
+        print('\nUnfollowing unfollowers/non-followers except for the accounts with the id\n{}..'.format(str_args))
+        print('\nHit Ctrl+C to interrupt the program.\n')
+
+        tt_utils.auto_unfollow_nonfollowers(orig_args)
 
     elif args.tweet_text:
         print('\nSending tweet to your timeline..')
